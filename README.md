@@ -51,10 +51,6 @@ This project performs sentiment analysis on movie subtitles and provides a way t
 - A line plot showing sentiment scores across the movie's subtitles.
 - Sentiment trends that can help identify emotional highs and lows in the movie.
 
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
 ## Acknowledgments
 
 - Hugging Face for the sentiment analysis model.

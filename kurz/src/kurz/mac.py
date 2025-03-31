@@ -8,16 +8,16 @@ import time
 classifier = pipeline("sentiment-analysis", model="michellejieli/emotion_text_classifier")
 
 def store_movie_subtitle_files(id):
-    df = pd.read_csv("dataset/movies_subtitles.csv").dropna().drop_duplicates()
+    df = pd.read_csv("src/kurz/dataset/movies_subtitles.csv").dropna().drop_duplicates()
 
     df_movie = df[df["imdb_id"] == id].drop(columns=["imdb_id"])
-    df_movie.to_csv(f"movies/{id}.csv", index=False)
+    df_movie.to_csv(f"src/kurz/movies/{id}.csv", index=False)
 
 
 def analyze_movie_sentiments(id):
     window_size="60s"
 
-    df = pd.read_csv(f"movies/{id}.csv")
+    df = pd.read_csv(f"src/kurz/movies/{id}.csv")
 
     df['start_time'] = pd.to_timedelta(df['start_time'], unit='s')
     df['end_time'] = pd.to_timedelta(df['end_time'], unit='s')

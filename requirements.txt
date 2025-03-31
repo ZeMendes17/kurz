@@ -1,6 +1,8 @@
-transformers 
+transformers
 torch
 numpy<2
 pandas
 seaborn
 matplotlib
+keybert
+sentence-transformers

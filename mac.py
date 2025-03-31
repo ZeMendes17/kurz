@@ -3,7 +3,7 @@ import seaborn as sns
 import pandas as pd
 from transformers import pipeline
 import time
-
+from tag_extraction import extract_keywords
 
 classifier = pipeline("sentiment-analysis", model="michellejieli/emotion_text_classifier")
 
@@ -71,5 +71,7 @@ analyze_movie_sentiments("golden_eye_subtitles")
 analyze_movie_sentiments("toy_story_subtitles")
 
 #store_movie_subtitle_files()
+
+extract_keywords("arristocats_subtitles")
 
 

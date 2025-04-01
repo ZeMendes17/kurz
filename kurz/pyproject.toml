@@ -1,0 +1,25 @@
+[project]
+name = "kurz"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Zé Mendes",email = "zepedrosmendes@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "transformers (>=4.50.3,<5.0.0)",
+    "torch (>=2.6.0,<3.0.0)",
+    "numpy (>=2.2.4,<3.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "seaborn (>=0.13.2,<0.14.0)",
+    "matplotlib (>=3.10.1,<4.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "kurz", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

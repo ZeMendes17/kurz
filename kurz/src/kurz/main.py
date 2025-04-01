@@ -7,7 +7,7 @@ from transformers import pipeline
 classifier = pipeline("sentiment-analysis", model="michellejieli/emotion_text_classifier") #top_k=None
 
 # Load and clean dataset
-df = pd.read_csv("dataset/movies_subtitles.csv").dropna().drop_duplicates()
+df = pd.read_csv("src/kurz/dataset/movies_subtitles.csv").dropna().drop_duplicates()
 
 # Filter Toy Story subtitles
 df_toy_story = df[df["imdb_id"] == "tt0114709"].drop(columns=["imdb_id"])

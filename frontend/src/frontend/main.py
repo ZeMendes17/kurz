@@ -44,15 +44,8 @@ def main():
         video_index = st.session_state.current_video
         st.session_state.likes[video_index] += 1
 
-    # Page layout
     col1, col2, col3 = st.columns([1, 6, 1])
     
-    with col1:
-        st.button("◀ Previous", on_click=prev_video)
-    
-    with col3:
-        st.button("Next ▶", on_click=next_video)
-
     # Current video display
     with col2:
         current = VIDEOS[st.session_state.current_video]
@@ -71,6 +64,17 @@ def main():
             on_click=like_video,
             key=f"like_{st.session_state.current_video}"
         )
+
+    # Create three columns to center the navigation buttons
+    col_left, col_center, col_right = st.columns([3, 2, 3])
+
+    with col_center:
+        # Within the center column, create two side-by-side columns for the buttons
+        btn_col1, btn_col2 = st.columns([1, 1])
+        with btn_col1:
+            st.button("◀ Previous", on_click=prev_video)
+        with btn_col2:
+            st.button("Next ▶", on_click=next_video)
 
 if __name__ == "__main__":
     main()

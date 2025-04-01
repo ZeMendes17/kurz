@@ -1,3 +1,4 @@
-dataset
+kurz/src/kurz/dataset
 venv
 poetry.lock
+__pycache__

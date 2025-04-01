@@ -4,12 +4,18 @@ import pandas as pd
 from transformers import pipeline
 import time
 import ollama
-
+from tag_extraction import extract_keywords
+from log_util import logger, separator, log_section, log_subsection
 
 classifier = pipeline("sentiment-analysis", model="michellejieli/emotion_text_classifier")
 
 def store_movie_subtitle_files(id):
-    df = pd.read_csv("src/kurz/dataset/movies_subtitles.csv").dropna().drop_duplicates()
+    logger.info(f"Storing movie subtitles for {id}")
+    try:
+        df = pd.read_csv("src/kurz/dataset/movies_subtitles.csv").dropna().drop_duplicates()
+    except FileNotFoundError:
+        logger.error("File not found. Please check the dataset path.")
+        return
 
     df_movie = df[df["imdb_id"] == id].drop(columns=["imdb_id"])
     df_movie.to_csv(f"src/kurz/movies/{id}.csv", index=False)
@@ -59,7 +65,18 @@ def analyze_movie_sentiments(id):
 
     # Read the data from the CSV file
     df = pd.read_csv(f"src/kurz/movies/{id}.csv")
+    
+    log_section(f"Analyzing movie sentiment for {id}")
+    logger.debug("Reading movie subtitles...")
+    try:
+        df = pd.read_csv(f"src/kurz/movies/{id}.csv")
+    except FileNotFoundError:
+        logger.error(f"File not found for {id}. Please run store_movie_subtitle_files first.")
+        return
 
+    
+    logger.debug("Preparing movie sentiment analysis...")
+    
     # Convert start_time and end_time to timedelta
     df['start_time'] = pd.to_timedelta(df['start_time'], unit='s')
     df['end_time'] = pd.to_timedelta(df['end_time'], unit='s')
@@ -74,7 +91,9 @@ def analyze_movie_sentiments(id):
         'start_time': 'first',
         'end_time': 'last'
     }).reset_index()
-
+ 
+    logger.debug("Clipped movie sentiment analysis started")
+    
     # Track sentiment analysis time
     start_time = time.time()
 
@@ -86,6 +105,27 @@ def analyze_movie_sentiments(id):
 
     # End the timer for sentiment analysis
     end_time = time.time()
+
+    logger.debug("Sentiment analysis completed")
+    
+    df_clips['max_emotion_score'] = df_clips['sentiment'].apply(
+    lambda x: max(
+        [e for e in x if e['label'] != 'neutral'], 
+        key=lambda e: e['score'], 
+        default={'score': 0}
+    )['score']
+)
+    
+    best_clip = df_clips.loc[df_clips['max_emotion_score'].idxmax()]
+    log_subsection("ANALYSIS RESULTS")
+    logger.info(f"Best Clip: {best_clip['text']}")
+    
+    logger.debug(f"Start Time: {best_clip['start_time']}, End Time: {best_clip['end_time']}")
+    
+    logger.info(f"Emotion: {best_clip['sentiment']}")
+
+    elapsed_time = end_time - start_time
+    logger.debug(f"Sentiment analysis took {elapsed_time:.2f} seconds.")
 
     # Get the top 5 clips based on max_emotion_score
     top_5_clips = df_clips.nlargest(5, 'max_emotion_score')
@@ -117,6 +157,8 @@ for sentiment in sentiment_list:
     ollama_responses.append(ask_ollama(prompt=ollama_base_prompt + sentiment))
     
 print(ollama_responses)
+
+extract_keywords("arristocats_subtitles")
 
 with open("src/kurz/ollama_responses.txt", "w") as f:
     for i in range(len(movie_list)):

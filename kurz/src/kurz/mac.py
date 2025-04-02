@@ -8,6 +8,7 @@ from tag_extraction import extract_keywords, extract_keyword_from_text
 from log_util import logger, separator, log_section, log_subsection
 
 classifier = pipeline("sentiment-analysis", model="michellejieli/emotion_text_classifier")
+ollama.Client(host="http://host.docker.internal:11434")
 
 def store_movie_subtitle_files(id):
     logger.info(f"Storing movie subtitles for {id}")
@@ -119,7 +120,7 @@ def analyze_movie_sentiments(id):
     log_subsection("ANALYSIS RESULTS")
     logger.info(f"Best Clip: {best_clip['text']}")
 
-    logger.info(f'Tags from Best Clip: {extract_keyword_from_text(best_clip['text'])}')
+    logger.info(f"Tags from Best Clip: {extract_keyword_from_text(best_clip['text'])}")
     
     logger.debug(f"Start Time: {best_clip['start_time']}, End Time: {best_clip['end_time']}")
     

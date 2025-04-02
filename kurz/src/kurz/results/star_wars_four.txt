@@ -1,0 +1,17 @@
+- Sentiment Analysis:
+
+Best Clip: We've lost the lateral controls! Don't worry. She'll hold together. Hear me, baby? Hold together. Ha ha! Got him! I got him! Great, kid! Don't get cocky. There's still two more of them out there!
+
+Tags from Best Clip: [('lateral controls', 0.436), ('ha ha', 0.2483), ('don worry', 0.2066)]
+Start Time: 01:35:01, End Time: 01:35:37
+Emotion: [{'label': 'joy', 'score': 0.9280025959014893}]
+Sentiment analysis took 13.30 seconds.
+
+
+- LLM Analysis:
+
+Best Clip: Why haven't you paid me... and why did you fry poor Greedo? Look, Jabba, next time you want to talk to me, come see me yourself. Don't send one of these twerps..
+
+Start Time: 00:53:02, End Time: 00:54:01
+
+Ollama analysis took 86.52 seconds.

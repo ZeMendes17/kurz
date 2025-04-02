@@ -1,0 +1,13 @@
+- Sentiment Analysis
+
+Best Clip: Oh!
+Tags from Best Clip: [('oh', 0.6926)]
+Start Time: 01:04:01, End Time: 01:05:03
+Emotion: [{'label': 'surprise', 'score': 0.9874425530433655}]
+Sentiment analysis took 10.97 seconds.
+
+- LLM Analysis
+
+Best Clip: Matilda. You filthy... Crush the little weasel! This is my room. That's my dad. - What's his name? - Magnus. I used to call him King Magnus and he called me Bumblebee. I don't think Magnus killed himself. Neither do I. Is that Lissy Doll? Wormwood, you useless, used-car-salesman scum! I want you around here now with another car! Yes, I know what caveat emptor means, you lowlife liar! I'm gonna sue you. I'm gonna burn down your showroom! I'm gonna take that no-good jalopy you sold me and shove it up your bazooga!
+Start Time: 01:00:01, End Time: 01:01:01
+Ollama analysis took 117.41 seconds.

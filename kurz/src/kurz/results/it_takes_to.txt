@@ -1,0 +1,14 @@
+- Sentiment Analysis:
+Best Clip: Oh, my God!
+
+Tags from Best Clip: [('oh god', 0.653), ('god', 0.337), ('oh', 0.2767)]
+
+Start Time: 0 days 00:39:38, End Time: 0 days 00:40:38.
+
+Emotion: [{'label': 'surprise', 'score': 0.9705377221107483}]
+
+Sentiment analysis took 12.22 seconds.
+
+- LLM Analysis:
+
+LLM picked the same clip, but took 97.02 seconds.

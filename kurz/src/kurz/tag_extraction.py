@@ -7,6 +7,17 @@ from log_util import logger, separator, log_section, log_subsection
 model = SentenceTransformer("all-mpnet-base-v2")
 kw_model = KeyBERT(model)
 
+def extract_keyword_from_text(text):
+    keywords = kw_model.extract_keywords(
+            text,
+            keyphrase_ngram_range=(1, 2), # This specifies the range of n-grams to consider for keyword extraction. (1, 3) means unigrams, bigrams, and trigrams.
+            use_mmr=True, # Maximal Marginal Relevance (MMR) is a method to select keywords that balance relevance and diversity.
+            diversity=0.8, # This parameter controls the diversity of the keywords extracted. A higher value means more diverse keywords.
+            top_n=3, # This specifies the number of keywords to extract.
+            stop_words="english" # This filters out common English stop words (e.g., “the”, “is”, “in”, “on”, etc.) which are not meaningful for keyword extraction.
+        )
+    return keywords
+
 def extract_keywords(id):
     log_section("Extracting Keywords")
     df = pd.read_csv(f"src/kurz/movies/{id}.csv")

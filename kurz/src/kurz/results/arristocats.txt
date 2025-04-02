@@ -1,0 +1,14 @@
+- Sentiment Analysis:
+
+Best Clip: You're a shameless flatterer, Georges. Adelaide, that's music. It's from Carmen, isn't it? That's right. It was my favourite role. Yes, yes. It was the night of your grand premiere
+that we first met. Remember? - Oh, indeed, I do.
+- And how we celebrated your success. Champagne, dancing the night away... [Georges hums along with tune] [Madame giggling] Oh, Georges. [record scratches, music slows] Oh, ho! [giggling] Thank goodness. Just in time.
+
+Tags from Best Clip: [('music carmen', 0.5546), ('shameless flatterer', 0.2552), ('record scratches', 0.0915)]
+Start Time: 0 days 00:06:00.692000, End Time: 0 days 00:07:01.043000
+Emotion: [{'label': 'joy', 'score': 0.9697898030281067}]
+Sentiment analysis took 9.47 seconds.
+
+- LLM Analysis:
+
+It picked the same clip, but took 142.78 seconds.

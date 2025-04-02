@@ -1,0 +1,33 @@
+- Sentiment Analysis
+
+Best Clip: It's a map of Jumanji. Cartography. - What's that?
+- The study of maps. It was one of
+Professor Oberon's skills. Yes. That's right. Oh, so you can't see this,
+but I can? The characters we chose,
+we all have certain skills. So there's gotta be
+a way to access our... Oh! Wow. What'd you just do? "Strengths:
+Fearless. Climbing. Speed. Boomerang. Smoldering intensity." What the hell are you doing? - What just happened?
+- Um, you just smoldered. "Weakness. None"? How'd you do that?
+That, uh, list? Well, I just... I think I just
+pressed my enormous left pec. It's like the boob area.
+Let me show you. Get away from me. At least press it
+in front of us... ...so we know exactly how...
+
+Tags from Best Clip: [('jumanji cartography', 0.5176), ('smoldered weakness', 0.4044), ('pec', 0.2179)]
+
+Start Time: 00:31:01, End Time: 00:32:01
+
+Emotion: [{'label': 'surprise', 'score': 0.972858190536499}]
+
+Sentiment analysis took 13.96 seconds.
+
+
+- LLM Analysis
+
+"Oh, my God. Yes, yes, yes! Yes, yes! I'm back, baby! I will never complain about my body ever again." 
+
+This clip has a high score for joy (0.9702244400978088)
+
+Start Time: 1:45:30, End Time: 1:45:47
+
+Ollama analysis took 91.40 seconds.

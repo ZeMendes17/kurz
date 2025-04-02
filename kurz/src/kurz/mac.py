@@ -4,7 +4,7 @@ import pandas as pd
 from transformers import pipeline
 import time
 import ollama
-from tag_extraction import extract_keywords
+from tag_extraction import extract_keywords, extract_keyword_from_text
 from log_util import logger, separator, log_section, log_subsection
 
 classifier = pipeline("sentiment-analysis", model="michellejieli/emotion_text_classifier")
@@ -118,6 +118,8 @@ def analyze_movie_sentiments(id):
     best_clip = df_clips.loc[df_clips['max_emotion_score'].idxmax()]
     log_subsection("ANALYSIS RESULTS")
     logger.info(f"Best Clip: {best_clip['text']}")
+
+    logger.info(f'Tags from Best Clip: {extract_keyword_from_text(best_clip['text'])}')
     
     logger.debug(f"Start Time: {best_clip['start_time']}, End Time: {best_clip['end_time']}")
     
@@ -133,18 +135,23 @@ def analyze_movie_sentiments(id):
 
 
 def ask_ollama(model='mistral', prompt='Hello!'):
+    start_time = time.time()
     response = ollama.chat(model=model, messages=[{'role': 'user', 'content': prompt}])
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    logger.debug(f"Ollama analysis took {elapsed_time:.2f} seconds.")
     return response
 
 # movie_list = ["arristocats_subtitles", "forrest_gump_subtitles", "toy_story_subtitles"]
-# tt0113497, tt0113442, tt0076759, tt0117008, tt0055277, tt0067992, tt0120762
-movie_list = ["toy_story_subtitles"]
+#, tt0076759, tt0117008, tt0055277, tt0067992, tt0120762
+movie_list = ["willy_wonka_chocolate_factory_subtitles"]
 sentiment_list = []
 
 for movie in movie_list:
     sentiment_list.append(analyze_movie_sentiments(movie))
 
-#store_movie_subtitle_files()
+#store_movie_subtitle_files("tt0076759")
+
 
 ollama_base_prompt = (
     "Hello, I am conducting a sentiment analysis on the subtitles of the following movie."

@@ -8,6 +8,8 @@ services:
     volumes:
       - ./kurz-recommendation-api:/app
     command: ["poetry", "run", "start"]
+    networks:
+      - kurz-network
 
   frontend:
     build:
@@ -18,3 +20,9 @@ services:
     volumes:
       - ./kurz-frontend:/app
     command: ["npm", "start"]
+    networks:
+      - kurz-network
+
+networks:
+  kurz-network:
+    driver: bridge

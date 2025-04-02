@@ -9,6 +9,7 @@ RUN npm install
 COPY . .
 
 RUN npm install react-scripts
+RUN npm install react-router-dom
 
 EXPOSE 3000
 

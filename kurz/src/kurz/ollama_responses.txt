@@ -1,12 +1,6 @@
-Movie: willy_wonka_chocolate_factory_subtitles
- Based on the provided subtitles, it appears that all the clips exhibit some form of intense emotion, primarily joy and disgust. However, if we are to select the clip with the most intense emotion (both in terms of sentiment score and overall impact), I would choose the following clip due to its high sentiment score and the dramatic revelation it presents:
+Movie: pocahontas_subtitles
+ Based on the given subtitles, it appears that the clip with the most intense emotion is the second one. The words and expressions used in this clip such as "Get the gun!", "Traitors!", "Unhand me, I say! How dare you!" suggest a high level of anger.
 
-Best Clip: All right, you take it. It's real. Taste it. It's delicious. It's just gotten smaller, that's all. It's perfect. It's unbelievable. It's a miracle. It's a TV dinner. It's Wonkavision. It could change the world. Mr. Wonka, can you send other things? - Not just chocolate, I mean. - Anything you like. What about... people? People? I don't really know. I suppose I could. Yes, I'm sure I could. I'm pretty sure I could. But it might have some messy results. Look at me. I'm gonna be the first person in the world to be sent by television! Mike, get away from that thing! Stop, don't, come back... Lights, camera, action! Mike! Where are you? He's up there, in a million pieces! - Mike! Are you there? - No good shouting here. Watch the screen. Mike? Why's he taking so long? Million pieces take a long time to put together.
-Start Time: 0 days 1:28:01.320000, End Time: 0 days 1:29:01.597000
-Emotion: [{'label': 'joy', 'score': 0.9704862833023071}]
-Max Emotion Score: 0.97
-
-This clip stands out for its high sentiment score (0.97) and the dramatic event that occurs, which is the accidental sending of Mike into pieces via Wonkavision. The excitement and anticipation leading up to this moment are also evident in the dialogue, making it a highly intense and emotional scene.
-
-The id of the subtitle section for this clip is: 0 days 1:28:01.320000, End Time: 0 days 1:29:01.597000
+Here is the id of the subtitle section for this clip:
+Start Time: 0 days 01:07:03.860000, End Time: 0 days 01:07:53.660000
 

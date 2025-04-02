@@ -1,0 +1,25 @@
+- Sentiment Analysis
+
+Best Clip: He steals our shit... ...kidnaps Julie... ...shoots at my wife.
+We beating him down. Marcus, I just got
+one question for you. How can you leave me at a gunfight
+to get the car? Shut up and let him drive. Getting shot improved
+your driving skills. You got the right to remain silent. Anything you say will be used
+against you in a court of law. - What you doing?
+- Getting it out the way. Punch it. Go!
+
+Tags from Best Clip: [('marcus', 0.4647), ('gunfight car', 0.3426), ('court law', 0.2172)]
+Start Time: 01:49:00, End Time: 01:49:56
+Emotion: [{'label': 'anger', 'score': 0.9763849973678589}]
+
+Sentiment analysis took 11.86 seconds.
+
+- LLM Analysis
+
+"And I will make my deal. I just put a bullet in the chemist... ...who fucked with my timetable. The other one is for the girl. Okay? Son of a bitch! That twisted motherfucker shot one of his employees. Says if we don't back up, he'll kill Julie. Not now. I told you to play by the rules. Don't do this now.
+I'm on the verge of solving this case. I've finally got the authority
+to shut you down. You're all reassigned. This guy is painting me into a corner. He'll kill the girl anyway.
+We won't let her die. We're not walking away.
+I don't care what she says. The deal goes down in 4 hours. You got 2 hours to find them. It's time to get lucky. Go do what you got to do."
+
+- Start: 01:38:03, End Time: 01:39:01

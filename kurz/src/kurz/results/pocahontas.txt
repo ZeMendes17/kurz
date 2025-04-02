@@ -1,0 +1,22 @@
+- Sentiment analysis
+
+Best Clip: If I never knew you If I never felt this love I would have no inkling of How precious life can be And I'm so grateful to you I'd have lived
+my whole life through
+
+Tags from Best Clip: [('grateful lived', 0.4323), ('knew', 0.1822), ('inkling', 0.1807)]
+
+Start Time: 01:12:36 , End Time: 01:13:02
+Emotion: [{'label': 'joy', 'score': 0.9799146056175232}]
+
+Sentiment analysis took 10.23 seconds.
+
+
+- LLM Analysis
+
+Best Clip: "Get the gun!", "Traitors!", "Unhand me, I say! How dare you!" suggest a high level of anger.
+
+Here is the id of the subtitle section for this clip:
+Start Time: 01:07:03, End Time: 01:07:53
+
+
+Ollama analysis took 87.74 seconds.

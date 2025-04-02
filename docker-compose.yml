@@ -1,0 +1,10 @@
+services:
+  recommendation-api:
+    build:
+      context: ./kurz-recommendation-api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./kurz-recommendation-api:/app
+    command: ["poetry", "run", "start"]

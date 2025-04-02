@@ -11,7 +11,7 @@ import numpy as np
 # Predefined movie list
 movies_list = [
     "tt0114709", "tt0113189", "tt0114148", "tt0112442", "tt0076759",
-    "tt0109830", "tt0117008", "tt0055277", "tt0067992", "tt0065421"
+    "tt0109830", "tt0117008", "tt0120783", "tt0067992", "tt0065421"
 ]
 
 seen_movies = []

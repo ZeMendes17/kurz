@@ -87,6 +87,7 @@ const ids = [
   "tt0067992",
   "tt0109830",
   "tt0114709",
+  "tt0055277"
 ];
 
 const MovieClip = () => {
@@ -98,7 +99,7 @@ const MovieClip = () => {
   const addToFavourite = async (id) => {
     try {
       const response = await fetch(
-        `http://recommendation-api:8000/api/like/${id}`,
+        `http://localhost:8000/api/like/${id}`,
         {
           method: "POST",
           headers: {
@@ -118,7 +119,7 @@ const MovieClip = () => {
   const goToNext = async () => {
     try {
       const response = await fetch(
-        "http://recommendation-api:8000/api/recommendation",
+        "http://localhost:8000/api/recommendation",
         {
           method: "GET",
           headers: {
@@ -130,13 +131,22 @@ const MovieClip = () => {
       const data = await response.json();
 
       console.log("Got ID:", data["movie"]);
+      const foundMovie = movies.find(
+        (movie) => movie.id === data["movie"]["imdb_id"]
+      );
+      if (foundMovie) {
+        setCurrentMovie(foundMovie);
+      } else {
+        console.error("Movie not found in the list");
+        return;
+      }
       navigate(`/movie/${data["movie"]["imdb_id"]}`);
     } catch (error) {
       console.error("Error adding to favorites:", error);
     }
   };
 
-  // Find movie details based on ID parameter
+  //  Find movie details based on ID parameter
   useEffect(() => {
     // Find the movie with the matching ID
     const foundMovie = movies.find((movie) => movie.id === id);

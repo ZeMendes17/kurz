@@ -1,0 +1,7 @@
+Movie: toy_story_subtitles
+ Based on the sentiment analysis, it appears that the clip with the most intense emotion is the one with the following dialogue: (AS BUZZ) You bet. Give me a hug. Ho-ho! Boy, I love you too. See? It is Buzz. -Now give back the lights, Potato Head.
+
+This exchange seems to evoke a strong feeling of disgust due to the argument and confrontation between the characters. The score for this clip is 0.96 in terms of the intensity of disgust.
+
+The id of the subtitle section for this clip is: Start Time: 0 days 00:53:02.554000, End Time: 0 days 00:54:00.862000
+

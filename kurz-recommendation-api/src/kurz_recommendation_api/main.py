@@ -125,6 +125,14 @@ def recommendation():
         "keywords": get_keywords(movie_id)
     }
 
+@app.get("/api/reset")
+def reset():
+    """Reset the state of the recommendation system"""
+    global seen_movies, liked_movies
+    seen_movies = []
+    liked_movies = []
+    return {"message": "State reset successfully"}
+
 def start():
     """Launched with `poetry run start` at root level"""
     uvicorn.run("src.kurz_recommendation_api.main:app", host="0.0.0.0", port=8000, reload=True)

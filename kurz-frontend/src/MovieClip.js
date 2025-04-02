@@ -11,96 +11,103 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useParams, useNavigate } from "react-router-dom";
 
+// Full movie data array with correct structure
 const movies = [
-    {
-      id: "tt0114709",
-      title: "Toy Story",
-      clip: "/videos/toy_story.mp4",
-      tags: ["comedy", "animation", "family"],
-    },
-    {
-      id: "tt0109830",
-      title: "Forrest Gump",
-      clip: "/videos/forrest_gump.mp4",
-      tags: ["comedy", "drama", "romance"],
-    },
-    {
-      id: "tt0067992",
-      title: "Willy Wonka and The Chocolate Factory",
-      clip: "/videos/willy_wonka.mp4",
-      tags: ["family", "fantasy"],
-    },
-    {
-      id: "tt0117008",
-      title: "Matilda",
-      clip: "/videos/matilda.mp4",
-      tags: ["comedy", "fantasy", "family"],
-    },
-    {
-      id: "tt0120783",
-      title: "The Parent Trap",
-      clip: "/videos/the_parent_trap.mp4",
-      tags: ["comedy", "family"],
-    },
-    {
-      id: "tt0112442",
-      title: "Bad Boys",
-      clip: "/videos/bad_boys.mp4",
-      tags: ["adventure", "action", "science fiction"],
-    },
-    {
-      id: "tt0065421",
-      title: "Aristocats",
-      clip: "/videos/aristocats.mp4",
-      tags: ["adventure", "action", "science fiction"],
-    },
-    {
-      id: "tt0113189",
-      title: "Golden Eye",
-      clip: "/videos/golden_eye.mp4",
-      tags: ["adventure", "action", "science fiction"],
-    },
-    {
-      id: "tt0076759",
-      title: "Star Wars: A New Hope (Episode IV)",
-      clip: "/videos/golden_eye.mp4",
-      tags: ["adventure", "action", "science fiction"],
-    },
-    {
-      id: "tt0114148",
-      title: "Pocahontas",
-      clip: "/videos/pocahontas.mp4",
-      tags: ["adventure", "action", "science fiction"],
-    },
-  ];
+  {
+    id: "tt0114709",
+    title: "Toy Story",
+    clip: "/videos/toy_story.mp4",
+    tags: ["comedy", "animation", "family"],
+  },
+  {
+    id: "tt0109830",
+    title: "Forrest Gump",
+    clip: "/videos/forrest_gump.mp4",
+    tags: ["comedy", "drama", "romance"],
+  },
+  {
+    id: "tt0067992",
+    title: "Willy Wonka and The Chocolate Factory",
+    clip: "/videos/willy_wonka.mp4",
+    tags: ["family", "fantasy"],
+  },
+  {
+    id: "tt0117008",
+    title: "Matilda",
+    clip: "/videos/matilda.mp4",
+    tags: ["comedy", "fantasy", "family"],
+  },
+  {
+    id: "tt0120783",
+    title: "The Parent Trap",
+    clip: "/videos/the_parent_trap.mp4",
+    tags: ["comedy", "family"],
+  },
+  {
+    id: "tt0112442",
+    title: "Bad Boys",
+    clip: "/videos/bad_boys.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  },
+  {
+    id: "tt0065421",
+    title: "Aristocats",
+    clip: "/videos/aristocats.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  },
+  {
+    id: "tt0113189",
+    title: "Golden Eye",
+    clip: "/videos/golden_eye.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  },
+  {
+    id: "tt0076759",
+    title: "Star Wars: A New Hope (Episode IV)",
+    clip: "/videos/star_wars.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  },
+  {
+    id: "tt0114148",
+    title: "Pocahontas",
+    clip: "/videos/pocahontas.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  }
+];
 
-const ids = ["tt0114148", "tt0076759", "tt0113189", "tt0065421", "tt0112442", "tt0120783", "tt0117008", "tt0067992", "tt0109830", "tt0114709"];
+// Order of IDs for navigation
+const ids = ["tt0114148", "tt0076759", "tt0113189", "tt0065421", "tt0112442", 
+             "tt0120783", "tt0117008", "tt0067992", "tt0109830", "tt0114709"];
 
 const MovieClip = () => {
   const { id } = useParams(); 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const videoRef = useRef(null);
   const [currentMovie, setCurrentMovie] = useState(null);
   
   // Find movie details based on ID parameter
   useEffect(() => {
-    if (id && movies[id]) {
-      setCurrentMovie({ id, ...movies[id] });
+    // Find the movie with the matching ID
+    const foundMovie = movies.find(movie => movie.id === id);
+    
+    if (foundMovie) {
+      setCurrentMovie(foundMovie);
     } else {
+      // If no match, use the first movie in the ids array
       const firstId = ids[0];
-      setCurrentMovie({ id: firstId, ...movies[firstId] });
+      const defaultMovie = movies.find(movie => movie.id === firstId);
+      setCurrentMovie(defaultMovie);
+      
+      // Update URL to match the actual movie being shown
+      navigate(`/movie/${firstId}`, { replace: true });
     }
     
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(error => {
-        console.error("Play error: ", error);
-      });
-    }
-  }, [id]);
+  }, [id, navigate]);
   
+  // Handle video playback when the movie changes
   useEffect(() => {
-    if (videoRef.current) {
+    if (videoRef.current && currentMovie) {
+      videoRef.current.currentTime = 0;
       videoRef.current.play().catch(error => {
         console.error("Play error: ", error);
       });
@@ -113,7 +120,7 @@ const MovieClip = () => {
     };
   }, [currentMovie]);
   
-/*
+  // Navigation function
   const navigateToMovie = (direction) => {
     if (!currentMovie) return;
     
@@ -129,7 +136,6 @@ const MovieClip = () => {
     navigate(`/movie/${ids[nextIdIndex]}`);
   };
   
-  */
   if (!currentMovie) return <Box sx={{ color: "#fff" }}>Loading...</Box>;
 
   return (
@@ -200,7 +206,7 @@ const MovieClip = () => {
                 {currentMovie.title}
               </Typography>
               <Typography variant="body2" sx={{ color: "#bbb" }}>
-                #{currentMovie.id} #movie
+                {currentMovie.tags.map((tag, index) => `#${tag} `)}
               </Typography>
             </Box>
           </CardContent>
@@ -225,13 +231,18 @@ const MovieClip = () => {
           <IconButton sx={{ color: "#fff" }}>
             <FavoriteIcon />
           </IconButton>
-          <IconButton sx={{ color: "#fff" }}>
+          <IconButton 
+            sx={{ color: "#fff" }}
+            onClick={() => {
+              window.open(`https://www.imdb.com/title/${currentMovie.id}/`);
+            }}
+          >
             <MovieIcon />
           </IconButton>
         </Box>
       </motion.div>
-      {/*
-      {/* Navigation buttons 
+      
+      {/* Navigation buttons */}
       <Box sx={{ display: "flex", justifyContent: "center", gap: 4, mt: 4 }}>
         <Button 
           startIcon={<ArrowBackIcon />}
@@ -249,7 +260,7 @@ const MovieClip = () => {
         >
           Next
         </Button>
-      </Box> */}
+      </Box>
     </Box>
   );
 };

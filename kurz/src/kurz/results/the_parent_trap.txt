@@ -1,0 +1,22 @@
+- Sentiment Analysis
+
+Best Clip: We actually did it! This will be
+the everlasting love This will be
+the one I've waited for This will be The first time
+anyone has loved me I'm so glad He found me in time And I'm so glad that
+he rectified my mind This will be
+an everlasting love for me Whoa Loving you
+is some kind of wonderful Because you've shown me
+just how much you care
+
+
+Tags from Best Clip: [('everlasting love', 0.4872), ('glad rectified', 0.142), ('did', 0.1308)]
+Start Time: 02:02:18, End Time: 02:03:00
+Emotion: [{'label': 'joy', 'score': 0.9908502101898193}]
+Sentiment analysis took 11.13 seconds.
+
+- LLM Analysis
+
+The LLM chose the same clip.
+
+Ollama analysis took 100.83 seconds.

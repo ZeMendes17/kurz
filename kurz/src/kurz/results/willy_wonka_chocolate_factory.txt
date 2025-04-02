@@ -1,0 +1,20 @@
+- Sentiment Analysis:
+
+Best Clip: ♪ I never thought my life could be ♪ ♪ Anything but catastrophe ♪ ♪ But suddenly I begin to see ♪ ♪ A bit of good luck for me ♪ ♪ 'Cause I've got a golden ticket ♪ ♪ I've got a golden twinkle ♪ ♪ In my eye ♪ ♪ I never had a chance to shine ♪ ♪ Never a happy song to sing ♪ ♪ But suddenly half the world is mine ♪ ♪ What an amazing thing ♪ ♪ 'Cause I've got a golden ticket ♪ It's ours, Charlie! ♪ I've got a golden sun up in the sky ♪ Slippers, Charlie! ♪ I never thought I'd see the day
+When I would face the world and say ♪
+
+Tags from Best Clip: [('happy song', 0.4285), ('catastrophe suddenly', 0.2218), ('slippers', 0.1502)]
+Start Time: 00:39:01, End Time: 00:40:01
+Emotion: [{'label': 'joy', 'score': 0.985988199710846}]
+Sentiment analysis took 10.75 seconds.
+
+- LLM Analysis:
+
+Best Clip: All right, you take it. It's real. Taste it. It's delicious. It's just gotten smaller, that's all. It's perfect. It's unbelievable. It's a miracle. It's a TV dinner. It's Wonkavision. It could change the world. Mr. Wonka, can you send other things? - Not just chocolate, I mean. - Anything you like. What about... people? People? I don't really know. I suppose I could. Yes, I'm sure I could. I'm pretty sure I could. But it might have some messy results. Look at me. I'm gonna be the first person in the world to be sent by television! Mike, get away from that thing! Stop, don't, come back... Lights, camera, action! Mike! Where are you? He's up there, in a million pieces! - Mike! Are you there? - No good shouting here. Watch the screen. Mike? Why's he taking so long? Million pieces take a long time to put together.
+Start Time: 1:28:01, End Time: 1:29:01
+
+Emotion: [{'label': 'joy', 'score': 0.9704862833023071}]
+
+Max Emotion Score: 0.97
+
+Ollama analysis took 161.56 seconds.

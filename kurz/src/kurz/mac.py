@@ -143,14 +143,15 @@ def ask_ollama(model='mistral', prompt='Hello!'):
     return response
 
 # movie_list = ["arristocats_subtitles", "forrest_gump_subtitles", "toy_story_subtitles"]
-# tt0113497, tt0113442, tt0076759, tt0117008, tt0055277, tt0067992, tt0120762
-movie_list = ["forrest_gump_subtitles"]
+#, tt0076759, tt0117008, tt0055277, tt0067992, tt0120762
+movie_list = ["willy_wonka_chocolate_factory_subtitles"]
 sentiment_list = []
 
 for movie in movie_list:
     sentiment_list.append(analyze_movie_sentiments(movie))
 
-#store_movie_subtitle_files()
+#store_movie_subtitle_files("tt0076759")
+
 
 ollama_base_prompt = (
     "Hello, I am conducting a sentiment analysis on the subtitles of the following movie."

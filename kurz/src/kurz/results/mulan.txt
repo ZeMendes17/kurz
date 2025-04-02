@@ -1,0 +1,17 @@
+- Sentiment Analysis
+
+Best Clip: Have you seen Hua Jun? Hua Jun? I'm Hua Mulan. Forgive me. He's a girl? You are an imposter. You've betrayed the regiment. You've brought disgrace
+to the Hua family. - Commander...
+- Your deceit is my shame.
+
+Tags from Best Clip: [('disgrace hua', 0.63), ('family commander', 0.277), ('seen', 0.1537)]
+Start Time: 01:12:00, End Time: 0 days 01:12:59
+Emotion: [{'label': 'disgust', 'score': 0.9724462032318115}]
+Sentiment analysis took 13.43 seconds.
+
+
+- LLM Analysis
+
+The LLM chose the same clip.
+
+Ollama analysis took 71.30 seconds.

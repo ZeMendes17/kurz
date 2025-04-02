@@ -1,0 +1,21 @@
+- Sentiment Analysis:
+
+Best Clip: FIVE, FOUR, - THREE, TWO...
+- FOR ENGLAND, JAMES! HOLD YOUR FIRE! YOU'LL BLOW THE GAS TANKS! THIS IS YOUR LAST CHANCE!
+COME OUT WITH YOUR HANDS... WAIT!
+
+Tags from Best Clip: [('england james', 0.4974), ('hands wait', 0.3392), ('gas tanks', 0.2096)]
+
+Start Time: 0 days 00:07:01.170000, End Time: 0 days 00:07:24.322000
+
+Emotion: [{'label': 'anger', 'score': 0.9895193576812744}]
+
+Sentiment analysis took 18.33 seconds.
+
+- LLM Analysis:
+
+est Clip: KIROV‘S FUNERAL PARLOR, Four O'Clock This Afternoon. 200 Pounds of C4 Explosives Hidden in a Casket. Your Man Drives the Hearse In, The Money's Exchanged, Their Man Drives the Hearse Out. Their Man Will Be Arrested With the Explosives. Your Man Will Make A Miraculous Escape With the Money. Your Money. And What Do I Owe For This Accommodation? I Want You to Set Me Up... With Janus. - What Has He Done to Deserve You? - Stolen a Helicopter. - I Have Six. - Three. None That Fly. - Who's Counting? - These Aren't Just Criminals But Traitors. They Used the Chopper to Steal a Nuclear Weapon. Killed a Lot of Innocent Russians. - What Do You Expect From a Cossack? - Who? This Janus - I Never Met the Man, But I Know He's a Lienz Cossack. The Group That Worked For the Nazis, Second World War.
+
+0 days 01:02:04.554000 to 0 days 01:03:02.362000
+
+Ollama analysis took 143.33 seconds.

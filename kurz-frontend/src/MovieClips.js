@@ -9,7 +9,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import MovieIcon from "@mui/icons-material/Movie";
 
 const movies = [
-  { title: "Inception", clip: "/videos/inception.mp4" },
+  { title: "Toy Story", clip: "/videos/toy_story.mp4" },
   { title: "Interstellar", clip: "/videos/inception.mp4" },
   { title: "The Matrix", clip: "/videos/inception.mp4" },
   { title: "The Dark Knight", clip: "/videos/inception.mp4" },
@@ -74,7 +74,7 @@ const MovieClips = () => {
         >
           <Card
             sx={{
-              width: 470,
+              width: 960,
               boxShadow: 3,
               borderRadius: 2,
               backgroundColor: "#000",
@@ -89,12 +89,12 @@ const MovieClips = () => {
                 <video
                   ref={(el) => (videoRefs.current[index] = el)}
                   src={movie.clip}
-                  muted
                   loop
+                  muted
                   playsInline
                   style={{
-                    width: "980px",
-                    height: "470px",
+                    width: "960px",
+                    height: "544px",
                     objectFit: "cover",
                     borderRadius: "8px",
                   }}

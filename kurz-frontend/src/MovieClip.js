@@ -95,6 +95,47 @@ const MovieClip = () => {
   const videoRef = useRef(null);
   const [currentMovie, setCurrentMovie] = useState(null);
 
+  const addToFavourite = async (id) => {
+    try {
+      const response = await fetch(
+        `http://recommendation-api:8000/api/like/${id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: null,
+        }
+      );
+
+      const data = await response.json();
+      console.log("Added to favorites:", data);
+    } catch (error) {
+      console.error("Error adding to favorites:", error);
+    }
+  };
+
+  const goToNext = async () => {
+    try {
+      const response = await fetch(
+        "http://recommendation-api:8000/api/recommendation",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      console.log("Got ID:", data["movie"]);
+      navigate(`/movie/${data["movie"]["imdb_id"]}`);
+    } catch (error) {
+      console.error("Error adding to favorites:", error);
+    }
+  };
+
   // Find movie details based on ID parameter
   useEffect(() => {
     // Find the movie with the matching ID
@@ -255,7 +296,10 @@ const MovieClip = () => {
                 <Button
                   endIcon={<ArrowForwardIcon />}
                   variant="contained"
-                  onClick={() => navigateToMovie("next")}
+                  onClick={() => {
+                    //navigateToMovie("next");
+                    goToNext();
+                  }}
                   sx={{
                     backgroundColor: "#333",
                     "&:hover": { backgroundColor: "#555" },
@@ -283,7 +327,12 @@ const MovieClip = () => {
             borderRadius: "12px",
           }}
         >
-          <IconButton sx={{ color: "#fff" }}>
+          <IconButton
+            sx={{ color: "#fff" }}
+            onClick={() => {
+              addToFavourite(currentMovie.id);
+            }}
+          >
             <FavoriteIcon />
           </IconButton>
           <IconButton

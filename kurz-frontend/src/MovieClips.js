@@ -9,10 +9,66 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import MovieIcon from "@mui/icons-material/Movie";
 
 const movies = [
-  { title: "Toy Story", clip: "/videos/toy_story.mp4" },
-  { title: "Interstellar", clip: "/videos/inception.mp4" },
-  { title: "The Matrix", clip: "/videos/inception.mp4" },
-  { title: "The Dark Knight", clip: "/videos/inception.mp4" },
+  {
+    id: "tt0114709",
+    title: "Toy Story",
+    clip: "/videos/toy_story.mp4",
+    tags: ["comedy", "animation", "family"],
+  },
+  {
+    id: "tt0109830",
+    title: "Forrest Gump",
+    clip: "/videos/forrest_gump.mp4",
+    tags: ["comedy", "drama", "romance"],
+  },
+  {
+    id: "tt0067992",
+    title: "Willy Wonka and The Chocolate Factory",
+    clip: "/videos/willy_wonka.mp4",
+    tags: ["family", "fantasy"],
+  },
+  {
+    id: "tt0117008",
+    title: "Matilda",
+    clip: "/videos/matilda.mp4",
+    tags: ["comedy", "fantasy", "family"],
+  },
+  {
+    id: "tt0120783",
+    title: "The Parent Trap",
+    clip: "/videos/the_parent_trap.mp4",
+    tags: ["comedy", "family"],
+  },
+  {
+    id: "tt0112442",
+    title: "Bad Boys",
+    clip: "/videos/bad_boys.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  },
+  {
+    id: "tt0065421",
+    title: "Aristocats",
+    clip: "/videos/aristocats.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  },
+  {
+    id: "tt0113189",
+    title: "Golden Eye",
+    clip: "/videos/golden_eye.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  },
+  {
+    id: "tt0076759",
+    title: "Star Wars: A New Hope (Episode IV)",
+    clip: "/videos/golden_eye.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  },
+  {
+    id: "tt0114148",
+    title: "Pocahontas",
+    clip: "/videos/pocahontas.mp4",
+    tags: ["adventure", "action", "science fiction"],
+  },
 ];
 
 const MovieClips = () => {
@@ -101,7 +157,6 @@ const MovieClips = () => {
                 ></video>
               </Box>
 
-              {/* Updated Footer Section */}
               <Box
                 sx={{
                   display: "flex",
@@ -120,13 +175,12 @@ const MovieClips = () => {
                   {movie.title}
                 </Typography>
                 <Typography variant="body2" sx={{ color: "#bbb" }}>
-                  #tags #moretags
+                  {movie.tags.map((tag, index) => `#${tag} `)}
                 </Typography>
               </Box>
             </CardContent>
           </Card>
 
-          {/* Side Panel for Icons */}
           <Box
             sx={{
               position: "absolute",
@@ -145,7 +199,12 @@ const MovieClips = () => {
             <IconButton sx={{ color: "#fff" }}>
               <FavoriteIcon />
             </IconButton>
-            <IconButton sx={{ color: "#fff" }}>
+            <IconButton
+              sx={{ color: "#fff" }}
+              onClick={() => {
+                window.open(`https://www.imdb.com/title/${movie.id}/`);
+              }}
+            >
               <MovieIcon />
             </IconButton>
           </Box>

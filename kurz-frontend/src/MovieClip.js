@@ -72,70 +72,79 @@ const movies = [
     title: "Pocahontas",
     clip: "/videos/pocahontas.mp4",
     tags: ["adventure", "action", "science fiction"],
-  }
+  },
 ];
 
 // Order of IDs for navigation
-const ids = ["tt0114148", "tt0076759", "tt0113189", "tt0065421", "tt0112442", 
-             "tt0120783", "tt0117008", "tt0067992", "tt0109830", "tt0114709"];
+const ids = [
+  "tt0114148",
+  "tt0076759",
+  "tt0113189",
+  "tt0065421",
+  "tt0112442",
+  "tt0120783",
+  "tt0117008",
+  "tt0067992",
+  "tt0109830",
+  "tt0114709",
+];
 
 const MovieClip = () => {
-  const { id } = useParams(); 
+  const { id } = useParams();
   const navigate = useNavigate();
   const videoRef = useRef(null);
   const [currentMovie, setCurrentMovie] = useState(null);
-  
+
   // Find movie details based on ID parameter
   useEffect(() => {
     // Find the movie with the matching ID
-    const foundMovie = movies.find(movie => movie.id === id);
-    
+    const foundMovie = movies.find((movie) => movie.id === id);
+
     if (foundMovie) {
       setCurrentMovie(foundMovie);
     } else {
       // If no match, use the first movie in the ids array
       const firstId = ids[0];
-      const defaultMovie = movies.find(movie => movie.id === firstId);
+      const defaultMovie = movies.find((movie) => movie.id === firstId);
       setCurrentMovie(defaultMovie);
-      
+
       // Update URL to match the actual movie being shown
       navigate(`/movie/${firstId}`, { replace: true });
     }
-    
   }, [id, navigate]);
-  
+
   // Handle video playback when the movie changes
   useEffect(() => {
     if (videoRef.current && currentMovie) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(error => {
+      videoRef.current.play().catch((error) => {
         console.error("Play error: ", error);
       });
     }
-    
+
     return () => {
       if (videoRef.current) {
         videoRef.current.pause();
       }
     };
   }, [currentMovie]);
-  
+
   // Navigation function
   const navigateToMovie = (direction) => {
     if (!currentMovie) return;
-    
+
     const currentIdIndex = ids.indexOf(currentMovie.id);
     let nextIdIndex;
-    
-    if (direction === 'next') {
+
+    if (direction === "next") {
       nextIdIndex = (currentIdIndex + 1) % ids.length;
     } else {
       nextIdIndex = (currentIdIndex - 1 + ids.length) % ids.length;
     }
-    
+
     navigate(`/movie/${ids[nextIdIndex]}`);
   };
-  
+
   if (!currentMovie) return <Box sx={{ color: "#fff" }}>Loading...</Box>;
 
   return (
@@ -149,10 +158,14 @@ const MovieClip = () => {
         backgroundColor: "#000",
       }}
     >
-      <Typography variant="h4" align="center" sx={{ mb: 4, color: "#fff" }}>
+      <Typography
+        variant="h4"
+        align="center"
+        sx={{ mb: 4, color: "#fff", font: "Poppins" }}
+      >
         Kurz Vid
       </Typography>
-      
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -187,32 +200,74 @@ const MovieClip = () => {
                 }}
               />
             </Box>
-
             <Box
               sx={{
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                mt: 2,
-                p: 1,
-                backgroundColor: "rgba(0, 0, 0, 0.7)",
-                borderRadius: "8px",
+                flexDirection: "row",
+                justifyContent: "space-between",
               }}
             >
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: "bold", color: "#fff" }}
+              <Box
+                sx={{
+                  alignContent: "center",
+                }}
               >
-                {currentMovie.title}
-              </Typography>
-              <Typography variant="body2" sx={{ color: "#bbb" }}>
-                {currentMovie.tags.map((tag, index) => `#${tag} `)}
-              </Typography>
+                <Button
+                  startIcon={<ArrowBackIcon />}
+                  variant="contained"
+                  onClick={() => navigateToMovie("prev")}
+                  sx={{
+                    backgroundColor: "#333",
+                    "&:hover": { backgroundColor: "#555" },
+                  }}
+                >
+                  Previous
+                </Button>
+              </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  mt: 2,
+                  p: 1,
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                  borderRadius: "8px",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: "bold", color: "#fff" }}
+                >
+                  {currentMovie.title}
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#bbb" }}>
+                  {currentMovie.tags.map((tag, index) => `#${tag} `)}
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  alignContent: "center",
+                }}
+              >
+                <Button
+                  endIcon={<ArrowForwardIcon />}
+                  variant="contained"
+                  onClick={() => navigateToMovie("next")}
+                  sx={{
+                    backgroundColor: "#333",
+                    "&:hover": { backgroundColor: "#555" },
+                  }}
+                >
+                  Next
+                </Button>
+              </Box>
             </Box>
           </CardContent>
         </Card>
 
-        {/* Side Panel for Icons */}
         <Box
           sx={{
             position: "absolute",
@@ -231,7 +286,7 @@ const MovieClip = () => {
           <IconButton sx={{ color: "#fff" }}>
             <FavoriteIcon />
           </IconButton>
-          <IconButton 
+          <IconButton
             sx={{ color: "#fff" }}
             onClick={() => {
               window.open(`https://www.imdb.com/title/${currentMovie.id}/`);
@@ -241,26 +296,6 @@ const MovieClip = () => {
           </IconButton>
         </Box>
       </motion.div>
-      
-      {/* Navigation buttons */}
-      <Box sx={{ display: "flex", justifyContent: "center", gap: 4, mt: 4 }}>
-        <Button 
-          startIcon={<ArrowBackIcon />}
-          variant="contained"
-          onClick={() => navigateToMovie('prev')}
-          sx={{ backgroundColor: "#333", "&:hover": { backgroundColor: "#555" } }}
-        >
-          Previous
-        </Button>
-        <Button 
-          endIcon={<ArrowForwardIcon />}
-          variant="contained"
-          onClick={() => navigateToMovie('next')}
-          sx={{ backgroundColor: "#333", "&:hover": { backgroundColor: "#555" } }}
-        >
-          Next
-        </Button>
-      </Box>
     </Box>
   );
 };

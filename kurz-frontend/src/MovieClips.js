@@ -4,6 +4,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { IconButton } from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import MovieIcon from "@mui/icons-material/Movie";
 
 const movies = [
   { title: "Inception", clip: "/videos/inception.mp4" },
@@ -20,29 +23,22 @@ const MovieClips = () => {
       (entries) => {
         entries.forEach((entry) => {
           const video = entry.target;
-          // Only play the video when it's 50% visible
           if (entry.isIntersecting) {
-            // Pause all other videos before playing the current one
             videoRefs.current.forEach((vid) => {
               if (vid !== video) {
                 vid.pause();
-                vid.currentTime = 0; // Reset the video time to the start
+                vid.currentTime = 0;
               }
             });
-            // Play the current video
             video.play().catch((error) => {
-              // Handle any error (e.g., autoplay blocked by the browser)
               console.error("Play error: ", error);
             });
           } else {
-            // Pause the video when it's not visible
             video.pause();
           }
         });
       },
-      {
-        threshold: 0.5, // Play video when 50% visible
-      }
+      { threshold: 0.5 }
     );
 
     videoRefs.current.forEach((video) => {
@@ -62,10 +58,11 @@ const MovieClips = () => {
         overflowY: "auto",
         p: 3,
         gap: 3,
+        backgroundColor: "#000",
       }}
     >
-      <Typography variant="h6" align="center" sx={{ mb: 2 }}>
-        Kurz
+      <Typography variant="h4" align="center" sx={{ mb: 2, color: "#fff" }}>
+        Kurz Vid
       </Typography>
       {movies.map((movie, index) => (
         <motion.div
@@ -73,13 +70,22 @@ const MovieClips = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          style={{ position: "relative", display: "flex" }}
         >
-          <Card sx={{ width: 470, boxShadow: 3, borderRadius: 2 }}>
-            <CardContent sx={{ p: 3 }}>
-              <Typography variant="h6" align="center" sx={{ mb: 2 }}>
-                {movie.title}
-              </Typography>
-              <Box display="flex" justifyContent="center">
+          <Card
+            sx={{
+              width: 470,
+              boxShadow: 3,
+              borderRadius: 2,
+              backgroundColor: "#000",
+            }}
+          >
+            <CardContent>
+              <Box
+                display="flex"
+                justifyContent="center"
+                sx={{ backgroundColor: "#000" }}
+              >
                 <video
                   ref={(el) => (videoRefs.current[index] = el)}
                   src={movie.clip}
@@ -87,15 +93,62 @@ const MovieClips = () => {
                   loop
                   playsInline
                   style={{
-                    width: "980px", // Increased size
-                    height: "470px", // Increased size
+                    width: "980px",
+                    height: "470px",
                     objectFit: "cover",
                     borderRadius: "8px",
                   }}
                 ></video>
               </Box>
+
+              {/* Updated Footer Section */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  mt: 2,
+                  p: 1,
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                  borderRadius: "8px",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: "bold", color: "#fff" }}
+                >
+                  {movie.title}
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#bbb" }}>
+                  #tags #moretags
+                </Typography>
+              </Box>
             </CardContent>
           </Card>
+
+          {/* Side Panel for Icons */}
+          <Box
+            sx={{
+              position: "absolute",
+              right: -70,
+              top: "50%",
+              transform: "translateY(-50%)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 2,
+              background: "#333",
+              padding: "10px",
+              borderRadius: "12px",
+            }}
+          >
+            <IconButton sx={{ color: "#fff" }}>
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton sx={{ color: "#fff" }}>
+              <MovieIcon />
+            </IconButton>
+          </Box>
         </motion.div>
       ))}
     </Box>

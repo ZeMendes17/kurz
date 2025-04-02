@@ -10,6 +10,7 @@ services:
   backend:
     build: kurz
     network_mode: host
+    restart: on-failure
     depends_on:
       ollama:
         condition: service_started

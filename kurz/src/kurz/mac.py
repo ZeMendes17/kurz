@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import sys
 import pandas as pd
 from transformers import pipeline
 import time
@@ -171,3 +172,5 @@ with open("src/kurz/ollama_responses.txt", "w") as f:
         f.write(f"Movie: {movie_list[i]}\n")
         f.write(ollama_responses[i].message['content'])
         f.write("\n\n")
+
+sys.exit(0)

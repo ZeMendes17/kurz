@@ -21,30 +21,14 @@ This project performs sentiment analysis on movie subtitles and provides a way t
 1. Clone the repository:
    ```bash
    git clone https://github.com/ZeMendes17/kurz.git
-   cd kurz
    ```
 
-2. Install the required dependencies:
+2. Run Docker Compose
    ```bash
-   pip install -r requirements.txt
+   docker compose up --build
    ```
 
 3. Ensure you have the subtitle dataset in the `dataset/` folder. The dataset should include a CSV file with subtitles and their corresponding movie IDs. The dataset is: `https://www.kaggle.com/datasets/adiamaan/movie-subtitle-dataset`.
-
-## Usage
-
-1. Run the main script to analyze the sentiment of a specific movie:
-   ```bash
-   python main.py
-   ```
-
-2. The script will:
-   - Load the subtitle dataset.
-   - Filter subtitles for the movie (e.g., Toy Story).
-   - Perform sentiment analysis on the subtitles.
-   - Plot the sentiment trends over time.
-
-3. (Optional) Use the planned clip extraction feature to extract video clips based on specific sentiments.
 
 ## Example Output
 

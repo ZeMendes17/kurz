@@ -28,7 +28,7 @@ This project performs sentiment analysis on movie subtitles and provides a way t
    docker compose up --build
    ```
 
-3. Ensure you have the subtitle dataset in the `dataset/` folder. The dataset should include a CSV file with subtitles and their corresponding movie IDs. The dataset is: `https://www.kaggle.com/datasets/adiamaan/movie-subtitle-dataset`.
+3. Ensure you have the subtitle dataset (both .csv files) in the `dataset/` folder inside `kurz/src/kurz` and `kurz-recommendation-api/src/`. The dataset should include a CSV file with subtitles and their corresponding movie IDs. The dataset is: `https://www.kaggle.com/datasets/adiamaan/movie-subtitle-dataset`.
 
 ## Example Output
 

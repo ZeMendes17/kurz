@@ -1,10 +1,28 @@
 services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    restart: unless-stopped
+    entrypoint: [ "sh", "-c", "ollama serve & sleep 2 && ollama pull mistral && wait" ]
+
+  backend:
+    build: kurz
+    network_mode: host
+    depends_on:
+      ollama:
+        condition: service_started
+
   recommendation-api:
     build:
       context: ./kurz-recommendation-api
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    depends_on:
+      backend:
+        condition: service_completed_successfully
     volumes:
       - ./kurz-recommendation-api:/app
     command: ["poetry", "run", "start"]
@@ -15,6 +33,9 @@ services:
     build:
       context: ./kurz-frontend
       dockerfile: Dockerfile
+    depends_on:
+      backend:
+        condition: service_completed_successfully
     ports:
       - "3000:3000"
     volumes:

@@ -1,0 +1,25 @@
+- Sentiment Analysis:
+
+Best Clip: and come to be brutalized and
+killed in their own communities. We are against
+these racist and imperial acts... ~ And I gave her the gun ~ ~ I shot her ~ Forrest! Stop it! Forrest! Stop it! Stop it! I shouldn't have
+brought you here. I should have known it was going
+to be some bullshit hassle! He should not be
+hitting you, Jenny. Come on, Forrest. Sorry I had a fight in the middle
+of your Black Panther party.
+
+Tags from Best Clip: [('panther party', 0.4126), ('gave gun', 0.2357), ('stop shouldn', 0.0956)]
+
+Start Time: 0 days 01:06:01.744000, End Time: 0 days 01:06:59.054000
+Emotion: [{'label': 'anger', 'score': 0.9713407158851624}]
+Sentiment analysis took 15.32 seconds.
+
+- LLM Analysis:
+
+Best Clip: Y-Y-Yes, sir, I do. Did you hear what I said? You cheated me! I had a destiny. I was supposed to die in the field with honor! That was my destiny, and you... cheated me out of it! You understand what I'm saying, Gump? This wasn't supposed to happen... Not to me. I had a destiny. I was... Lieutenant... Dan Taylor. Y-You still Lieutenant Dan.
+
+Start Time: 0 days 00:58:00.340000, End Time: 0 days 00:58:55.565000
+Emotion: [{'label': 'anger', 'score': 0.9610246419906616}]
+Max Emotion Score: 0.96
+
+Ollama analysis took 157.89 seconds.

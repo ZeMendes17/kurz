@@ -1,0 +1,20 @@
+- Sentiment Analysis:
+
+Best Clip: (LOUD ROAR) ♪ Ain't no doubt about it ♪ l had friends
+l had lots of friends ♪ Now all my friends are gone ♪ And l'm doin' the best l can ♪ To carry on -♪ l had power
+-CHORUS: ♪ Power -♪ l was respected
+-♪ Respected ♪ But not any more ♪ And l've lost the love of the one ♪ Whom l adore ♪ Let me tell you 'bout it
+Strange ♪ Things are happenin' to me (SLINKY GRUNTS) ♪ Strange ♪ Things ♪ Strange ♪ Things are happenin' to me ♪ Ain't no doubt about it
+
+Tags from Best Clip: [('things strange', 0.4002), ('roar', 0.283), ('best carry', 0.0328)]
+Start Time: 0 days 00:21:01.844000, End Time: 0 days 00:22:01.569000
+Emotion: [{'label': 'sadness', 'score': 0.9794562458992004}]
+Sentiment analysis took 10.28 seconds.
+
+- LLM Analysis:
+
+Start Time: 0 days 00:13:00.405000, End Time: 0 days 00:13:59.588000
+
+The emotion detected in this clip is "surprise" with a score of 0.9635569453239441
+
+Ollama analysis took 151.58 seconds.

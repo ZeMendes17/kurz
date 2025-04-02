@@ -60,13 +60,12 @@ def get_clip_strings(top_5_clips, start_time, end_time):
     return final_result
 
 def analyze_movie_sentiments(id):
-    print(f"Analyzing movie: {id}")
+    log_section(f"Analyzing movie sentiment for {id}")
     window_size = "60s"
 
     # Read the data from the CSV file
     df = pd.read_csv(f"src/kurz/movies/{id}.csv")
     
-    log_section(f"Analyzing movie sentiment for {id}")
     logger.debug("Reading movie subtitles...")
     try:
         df = pd.read_csv(f"src/kurz/movies/{id}.csv")
@@ -137,8 +136,9 @@ def ask_ollama(model='mistral', prompt='Hello!'):
     response = ollama.chat(model=model, messages=[{'role': 'user', 'content': prompt}])
     return response
 
-# movie_list = ["arristocats_subtitles", "forrest_gump_subtitles", "golden_eye_subtitles", "toy_story_subtitles"]
-movie_list = ["forrest_gump_subtitles"]
+# movie_list = ["arristocats_subtitles", "forrest_gump_subtitles", "toy_story_subtitles"]
+# tt0113497, tt0113442, tt0076759, tt0117008, tt0055277, tt0067992, tt0120762
+movie_list = ["toy_story_subtitles"]
 sentiment_list = []
 
 for movie in movie_list:
@@ -156,9 +156,7 @@ ollama_responses = []
 for sentiment in sentiment_list:
     ollama_responses.append(ask_ollama(prompt=ollama_base_prompt + sentiment))
     
-print(ollama_responses)
-
-extract_keywords("arristocats_subtitles")
+#extract_keywords("arristocats_subtitles")
 
 with open("src/kurz/ollama_responses.txt", "w") as f:
     for i in range(len(movie_list)):

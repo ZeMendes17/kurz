@@ -1,8 +1,7 @@
-Movie: forrest_gump_subtitles
- Based on the sentiment analysis and movie reviews, it seems that both clips demonstrate intense emotions, with one displaying anger (Clip 5) and the other sadness (Clip 2). However, Clip 5 appears to have a slightly higher intensity of anger as per the sentiment score.
+Movie: toy_story_subtitles
+ Based on the sentiment analysis, it appears that the clip with the most intense emotion is the one with the following dialogue: (AS BUZZ) You bet. Give me a hug. Ho-ho! Boy, I love you too. See? It is Buzz. -Now give back the lights, Potato Head.
 
-As for the subtitle section id, I cannot provide that information as it is not included in the provided data. Please check the source of your subtitles if you need this information.
+This exchange seems to evoke a strong feeling of disgust due to the argument and confrontation between the characters. The score for this clip is 0.96 in terms of the intensity of disgust.
 
-Best clip (based on anger): Run, son of a bitch, run! Go! Run! Run! Run! Go! He must be the stupidest son of a bitch alive, but he sure is fast. <i>Now, maybe it's just me,</i> <i>but college was very confusing times.</i> <i>Federal troops, enforcing a court order,</i> <i>integrated the University of Alabama today.</i> <i>Two Negroes were admitted,</i> <i>but only after Governor George Wallace</i> <i>had carried out his symbolic threat to stand in the schoolhouse door.</i> I take it from that statement... Earl, what's going on? Coons are trying to get into school. Coons? When raccoons tried getting on our back porch,
-Start Time: 0 days 00:21:05.888000, End Time: 0 days 00:22:00.638000
+The id of the subtitle section for this clip is: Start Time: 0 days 00:53:02.554000, End Time: 0 days 00:54:00.862000
 
